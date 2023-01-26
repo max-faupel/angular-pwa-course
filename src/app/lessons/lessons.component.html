@@ -1,22 +1,26 @@
+<div class="lessons-list-container v-h-center-block-parent">
+  <div class="buttons">
+    <button class="button button-primary" (click)="subsribeToNotifications()" [disabled]="pushSubscription">Subscribe</button>
+    <button class="button button-danger" (click)="sendNewsletter()">Send</button>
+    <button class="button button-danger" (click)="loadLessons()">
+      Reload Lessons
+    </button>
+  </div>
 
-<div class="lessons-list-container v-h-center-block-parent" >
+  <h2>All Lessons - V4</h2>
 
-    <div class="buttons">
-        <button class="button button-danger" (click)="loadLessons()">Reload Lessons</button>
-    </div>
-
-    <h2>All Lessons - V3</h2>
-
-    <table class="table lessons-list card card-strong">
-        <tbody>
-        <tr *ngFor="let lesson of lessons$ | async" [routerLink]="['/lessons', lesson.id]">
-            <td class="lesson-title"> {{lesson.description}} </td>
-            <td class="duration">
-                <i class="md-icon duration-icon">access_time</i>
-                <span>{{lesson.duration}}</span>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-
+  <table class="table lessons-list card card-strong">
+    <tbody>
+      <tr
+        *ngFor="let lesson of lessons$ | async"
+        [routerLink]="['/lessons', lesson.id]"
+      >
+        <td class="lesson-title">{{ lesson.description }}</td>
+        <td class="duration">
+          <i class="md-icon duration-icon">access_time</i>
+          <span>{{ lesson.duration }}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
